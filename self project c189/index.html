@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+        <script src="movement.js"></script>
+        <script src="gameOb.js"></script>
+    </head>
+    <body>
+        <a-scene id="scene" background="color:green">
+            
+            <a-assets>
+            <a-asset-item id="coin" src="assets/gamecoin.glb"></a-asset-item>
+            <a-asset-item id="ob1" src="assets/obstical1.glb"></a-asset-item>
+            <a-asset-item id="ob2" src="assets/obstical2.glb"></a-asset-item>
+            <a-asset-item id="man" src="assets/male_running_20_frames_loop/scene.gltf"></a-asset-item>
+            </a-assets>
+
+            <a-entity id="environment" environment="preset:forest;skyType:gradient;lighting:distant"></a-entity>
+            
+            <a-entity>
+                <a-cone position="1 1 -5" scale="1.5 1.5 1.5" height="2" color="red"></a-cone>
+            </a-entity>
+            
+            <a-entity id="cameracontrol" movement-controls="speed:0.5" position = "0 1 5" rotation="0 0 0" >
+                <a-entity id="camera" camera position="0 1 0" rotation="0 0 0" look-controls="ponterLockEnabeled:false">
+                    <a-entity id="manRunning" gltf-model="#man" position="0 -0.11 -0.1" rotation="0 180 0" scale="0.05 0.05 0.05" move-play></a-entity>
+                </a-entity>
+            </a-entity>
+
+            <a-entity obsticals></a-entity>
+
+        </a-scene>
+    </body>
+</html>
